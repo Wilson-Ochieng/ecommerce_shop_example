@@ -6,7 +6,9 @@ class ThemeProvider with ChangeNotifier {
   bool _darkTheme = false;
   bool get getIsDarkTHeme => _darkTheme;
 
-  ThemeProvider() {}
+  ThemeProvider() {
+    getTheme();
+  }
 
   setDarkTheme(bool value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();

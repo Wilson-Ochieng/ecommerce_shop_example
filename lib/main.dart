@@ -1,3 +1,4 @@
+import 'package:e_shop/constants/theme_data.dart';
 import 'package:e_shop/providers/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:e_shop/screens/home_screen.dart';
@@ -13,10 +14,14 @@ void main() {
           },
         ),
       ],
-      child: MaterialApp(
-        theme: ThemeData(scaffoldBackgroundColor: Colors.blue),
+      child: Consumer<ThemeProvider>(
+        builder: (context, themeProvider, child) {
+          return MaterialApp(
+            theme: Styles.themeData(isDarkTheme: themeProvider.getIsDarkTHeme,context: context),
 
-        home: Scaffold(body: HomeScreen()),
+            home: Scaffold(body: HomeScreen()),
+          );
+        },
       ),
     ),
   );
